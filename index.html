@@ -107,6 +107,34 @@ html, body {
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
+/* ===== DEDICATORIA INFERIOR ===== */
+#dedication {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 6;
+    max-width: 320px;
+    padding: 18px 22px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    font-family: Georgia, serif;
+    color: #5a2a3a;
+    pointer-events: auto;
+}
+
+#dedication h4 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    color: #c0577c;
+}
+
+#dedication p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
 /* ===== CLICK PARA MÚSICA ===== */
 #tap {
     position: fixed;
@@ -212,6 +240,19 @@ html, body {
 
 <!-- AUDIO -->
 <audio id="music" src="audio/MAI.mp3" loop></audio>
+
+<div id="dedication">
+    <h4>Para Andrea Jimena Benites Porras 💕</h4>
+    <p>
+        Este detalle no es solo un diseño,  
+        es un pedacito de lo que siento por ti.  
+        <br><br>
+        Gracias por existir,  
+        por ser como eres  
+        y por ocupar un lugar tan especial  
+        en mi corazón.
+    </p>
+</div>
 
 <script>
 const track = document.getElementById("track");
