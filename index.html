@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para ti 💙</title>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: black;
+    font-family: system-ui, sans-serif;
+}
+
+/* ===== COLLAGE ===== */
+#viewport {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#track {
+    position: absolute;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-auto-rows: 150px;
+    gap: 6px;
+    animation: scrollUp 60s linear infinite;
+}
+
+#track img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes scrollUp {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-50%); }
+}
+
+/* ===== OVERLAY ===== */
+#overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+/* ===== CARTAS ===== */
+.cards {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+.card {
+    width: 320px;
+    padding: 24px;
+    pointer-events: auto;
+}
+
+/* CLÁSICA */
+.card.classic {
+    background: #fffafc;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    font-family: Georgia, serif;
+    color: #5a2a3a;
+}
+
+/* GLASS */
+.card.glass {
+    border-radius: 18px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    color: white;
+}
+
+/* NOTA */
+.card.note {
+    background: white;
+    border-radius: 10px;
+    font-family: "Courier New", monospace;
+    color: #333;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+    transform: rotate(-2deg);
+}
+
+/* MODERNA */
+.card.modern {
+    background: linear-gradient(135deg, #1a1a1a, #333);
+    border-radius: 16px;
+    color: #f2c9d8;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+/* ===== CLICK PARA MÚSICA ===== */
+#tap {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.35);
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- CLICK -->
+<div id="tap">Haz click 💙</div>
+
+<!-- COLLAGE -->
+<div id="viewport">
+    <div id="track"></div>
+</div>
+
+<!-- CARTAS -->
+<div id="overlay">
+    <div class="cards">
+        <div class="card classic">
+            <h2>Para ti 💗 siempre</h2>
+            <p>
+                No te amo solo por lo que eres hoy,
+                te amo por todo lo que hemos sido
+                y por todo lo que aún nos queda por vivir.
+                <br><br>
+                Te elijo en los días tranquilos
+                y también en los días difíciles.
+                Te elijo para caminar de la mano,
+                para equivocarnos, aprender
+                y volver a encontrarnos una y otra vez.
+                <br><br>
+                Si el mundo se pone pesado,
+                quiero ser tu descanso.
+                Y si alguna vez dudas,
+                recuerda que aquí hay alguien
+                que te ama con todas sus fuerzas.
+            </p>
+        </div>
+
+        <div class="card glass">
+            <h2>Aqui Estoy ✨</h2>
+            <p>
+                Aunque no siempre pueda estar a tu lado,
+                mi corazón nunca se mueve de donde estás tú.
+                <br><br>
+                Estoy en cada pensamiento que te cuida,
+                en cada deseo de verte bien,
+                en cada abrazo que imagino
+                cuando te duele algo o te sientes cansada.
+                <br><br>
+                Quisiera ser quien te calme,
+                quien te haga sentir segura
+                y quien te recuerde, incluso en silencio,
+                que eres profundamente amada.
+            </p>
+        </div>
+
+        <div class="card note">
+            <p>
+                Amor,<br><br>
+                No sé amar a medias.
+                <br><br>
+                Cuando te pienso, te pienso completa.
+                Cuando te extraño, te extraño de verdad.
+                <br><br>
+                Y cuando digo que te amo,
+                lo digo con el corazón abierto,
+                con respeto, con ternura
+                y con unas ganas inmensas
+                de compartir la vida contigo.
+                <br><br>— Yo 💖
+            </p>
+        </div>
+
+        <div class="card modern">
+            <h3>En todos los caminos</h3>
+            <p>
+                Si tuviera que elegir otra vez,
+                volvería a elegirte sin dudar.
+                <br><br>
+                En todos los caminos,
+                en todos los tiempos
+                y en todas las versiones de mí,
+                siempre hay un lugar reservado para ti.
+                <br><br>
+                Porque amarte no es una casualidad,
+                es una decisión que tomo cada día.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- AUDIO -->
+<audio id="music" src="audio/MAI.mp3" loop></audio>
+
+<script>
+const track = document.getElementById("track");
+const tap = document.getElementById("tap");
+const music = document.getElementById("music");
+
+/* TOTAL DE FOTOS */
+const TOTAL_FOTOS = 92;
+
+/* DUPLICAMOS PARA LOOP */
+for (let r = 0; r < 2; r++) {
+    for (let i = 1; i <= TOTAL_FOTOS; i++) {
+        const img = document.createElement("img");
+        img.src = `fotos/foto${i}.jpg`;
+        track.appendChild(img);
+    }
+}
+
+/* CLICK → MÚSICA */
+tap.addEventListener("click", () => {
+    music.play();
+    tap.style.display = "none";
+});
+</script>
+
+</body>
+</html>
